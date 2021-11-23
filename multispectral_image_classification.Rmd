@@ -13,11 +13,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Prepare your working folder
 
+If you downloaded this repo directly from GitHub, make sure to create a `data`
+folder in your repository. Put all the downloaded files there in order to run
+all the code below.
 
+You can set up your `data` folder with this code:
+
+```{r, eval = FALSE, message = FALSE}
+fs::dir_create(path = paste0(here::here(), "/data"))
+```
 
 # R packages needed for the analysis
 
-```{r}
+```{r, message = FALSE}
 library(RStoolbox)
 library(raster)
 library(RStoolbox) 
