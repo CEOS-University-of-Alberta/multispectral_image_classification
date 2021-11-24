@@ -596,8 +596,9 @@ profiles %>%
              linetype = "dashed", size = 1) +
   scale_fill_manual(values = c('lawngreen',
                                'burlywood',
-                               'lightblue',
-                               'darkgreen'),
+                               'darkgreen',
+                               'lightblue'
+                               ),
                     name = "class") +
   scale_color_manual(values = c("black",
                                 "red",
@@ -656,14 +657,20 @@ the levels to our selected classes:
 
 ```{r}
 levels(predictions) <- levels(predictions)[[1]] %>%
-  mutate(legend = c("agriculture","urban","water", "other vegetation"))
+  mutate(legend = c("agriculture",
+                    "urban",
+                    "other vegetation",
+                    "water"))
 ```
 
 Finally, let's check the result with a plot:
 
 ```{r}
 levelplot(predictions, maxpixels = 1e6,
-          col.regions = c('lawngreen', 'burlywood', 'lightblue', 'darkgreen'),
+          col.regions = c('lawngreen',
+                          'burlywood',
+                          'darkgreen',
+                          'lightblue'),
           scales = list(draw = FALSE),
           main = "Supervised Classification of Imagery")
 ```
